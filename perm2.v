@@ -3,7 +3,7 @@
 //Compression P
 
 
-module perm2(round_key_1, intermediate);
+module perm2(round_key_i, intermediate);
 input [55:0] intermediate;
 output [47:0] round_key_i;
 

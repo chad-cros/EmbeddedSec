@@ -1,7 +1,7 @@
 // Round key generator
 //input is 64 bit key
-module key_gen (, KEY);
-	input rotate_amount;
+module key_gen (r_key1, r_key2, r_key3, r_key4, r_key5, r_key6, r_key7, r_key8, r_key9, r_key10, r_key11, r_key12, r_key13, r_key14, r_key15, r_key16, KEY);
+	
 	input [63:0] KEY;
 	output [47:0] r_key1;
 	output [47:0] r_key2;
@@ -20,7 +20,7 @@ module key_gen (, KEY);
 	output [47:0] r_key15;
 	output [47:0] r_key16;
 	
-	output reg [63:0] r_out;
+	
 	
 	
 	wire [55:0] p1;
@@ -63,8 +63,8 @@ module key_gen (, KEY);
 	
 	//initial permutation
 	perm1 p1 (
-		.in(r_in), 
-		.out(p1)
+		.KEY(KEY), 
+		.subkey(p1)
 	);
 	
 	//Round Key 1
@@ -79,8 +79,8 @@ module key_gen (, KEY);
 	assign int1[55:28] = C1;
 	assign int1 [27:0] = D1;
 	perm2 r1 ( //Permutation choice 2 for round 1
-		.in(int1),
-		.out(r_key1)
+		.round_key_i(r_key1), 
+		.intermediate(int1)
 	);
 	
 		//Round Key 2
@@ -92,8 +92,8 @@ module key_gen (, KEY);
 	assign int2[55:28] = C2;
 	assign int2 [27:0] = D2;
 	perm2 r2 ( //Permutation choice 2 for round 2
-		.in(int2),
-		.out(r_key2)
+		.round_key_i(r_key2), 
+		.intermediate(int2)
 	);
 			
 		//Round Key 3
@@ -105,8 +105,8 @@ module key_gen (, KEY);
 	assign int3[55:28] = C3;
 	assign int3 [27:0] = D3;
 	perm2 r3 ( //Permutation choice 2 for round 3
-		.in(int3),
-		.out(r_key3)
+		.round_key_i(r_key3), 
+		.intermediate(int3)
 	);
 
 		//Round Key 4
@@ -118,8 +118,8 @@ module key_gen (, KEY);
 	assign int4[55:28] = C4;
 	assign int4 [27:0] = D4;
 	perm2 r4 ( //Permutation choice 2 for round 4
-		.in(int4),
-		.out(r_key4)
+		.round_key_i(r_key4), 
+		.intermediate(int4)
 	);
 	
 		//Round Key 5
@@ -131,8 +131,8 @@ module key_gen (, KEY);
 	assign int5[55:28] = C5;
 	assign int5 [27:0] = D5;
 	perm2 r5 ( //Permutation choice 2 for round 5
-		.in(int5),
-		.out(r_key5)
+		.round_key_i(r_key5), 
+		.intermediate(int5)
 	);
 	
 		//Round Key 6
@@ -144,8 +144,8 @@ module key_gen (, KEY);
 	assign int6[55:28] = C6;
 	assign int6 [27:0] = D6;
 	perm2 r6 ( //Permutation choice 2 for round 6
-		.in(int6),
-		.out(r_key6)
+		.round_key_i(r_key6), 
+		.intermediate(int6)
 	);
 	
 		//Round Key 7
@@ -157,8 +157,8 @@ module key_gen (, KEY);
 	assign int7[55:28] = C7;
 	assign int7 [27:0] = D7;
 	perm2 r7 ( //Permutation choice 2 for round 7
-		.in(int7),
-		.out(r_key7)
+		.round_key_i(r_key7), 
+		.intermediate(int7)
 	);
 	
 		//Round Key 8
@@ -167,11 +167,11 @@ module key_gen (, KEY);
 	assign D8 = D7<<2;
 	assign D8[1:0] = D7[27:26];	
 	wire [55:0] int8; //intermediate wire to combine C8 and D8
-	assign int7[55:28] = C8;
-	assign int7 [27:0] = D8;
-	perm2 r7 ( //Permutation choice 2 for round 8
-		.in(int8),
-		.out(r_key8)
+	assign int8[55:28] = C8;
+	assign int8 [27:0] = D8;
+	perm2 r8 ( //Permutation choice 2 for round 8
+		.round_key_i(r_key8), 
+		.intermediate(int8)
 	);
 	
 	//NEED 8 more rounds

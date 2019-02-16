@@ -19,9 +19,9 @@ module DES_round (CLK, round_in, r_key);
 	
 	//call f block
 	f fblock(
+		.Rout(fout),
 		.Rin(R0),
-		.r_key (r_key),
-		.Rout(fout)	
+		.r_key (r_key)
 	);
 	
 	assign round_out[31:0] =  fout ^ L0; // right half of next round is XOR of f block output and L0

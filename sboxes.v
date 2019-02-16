@@ -1,9 +1,9 @@
 //sboxes.v
 //8 s boxes for f block
 
-module sboxes(in);
+module sboxes(out, in);
 	input in[47:0];
-	output reg intermediate[31:0];
+	output out[31:0];
 	
 	reg in1[5:0];
 	reg in2[5:0];
