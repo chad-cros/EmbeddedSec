@@ -1,9 +1,10 @@
 //perm1.v
 //Permutation Choice 1 for Round Key Generator
+//Parity drop for keygen
 
-module (perm1);
+module perm1(subkey, KEY);
 input [63:0] KEY;
-output reg [55:0] subkey;
+output [55:0] subkey;
 
 /* PC-1
 57 49 41 33 25 17 9

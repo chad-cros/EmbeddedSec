@@ -1,7 +1,6 @@
 // Round key generator
 //input is 64 bit key
-module key_gen (CLK, KEY);
-	input CLK;
+module key_gen (, KEY);
 	input rotate_amount;
 	input [63:0] KEY;
 	output [47:0] r_key1;
@@ -25,6 +24,7 @@ module key_gen (CLK, KEY);
 	
 	
 	wire [55:0] p1;
+
 	wire [27:0] C0; 
 	wire [27:0] D0;
 	wire [27:0] C1; 

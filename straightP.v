@@ -1,10 +1,10 @@
 //straightP.v
 //straight P-box for f block
 
-module straightP(in);
+module straightP(out, in);
 
 	input in[31:0];
-	output reg out[31:0];
+	output out[31:0];
 	
 	/*16 7 20 21
 	29 12 28 17

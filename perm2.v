@@ -1,9 +1,13 @@
 //perm2.v
 //Permutation Choice 2 for Round Key Generator
+//Compression P
 
-module (perm2);
-input [63:0] intermediate;
-output reg [55:0] round_key_i;
+
+module perm2(round_key_1, intermediate);
+input [55:0] intermediate;
+output [47:0] round_key_i;
+
+//Possibly wrong
 
 /*PC-2
 14 17 11 24 1 5

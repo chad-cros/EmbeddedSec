@@ -3,7 +3,7 @@
 
 module sboxes(in);
 	input in[47:0];
-	output reg out1[47:0];
+	output reg out1[31:0];
 	
 	reg in1[5:0];
 	reg in2[5:0];

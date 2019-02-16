@@ -29,6 +29,10 @@ wire [64:1] PLAIN_TEXT;
 wire [64:1] CIPHER_TEXT;
 
 
+//Need 16 different reg for keys
+
+
+
 
 
 //round()
