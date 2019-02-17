@@ -15,5 +15,7 @@
 						with fblock.
 	Y	DES_top.v	-		Top level module that incorporates all of the
 						instantiated modules.
+	Y	DES_decrypt.v	-		Top level module that incorporates all above
+						modules to decrypt DES.
 
 
