@@ -8,8 +8,9 @@
 -	N	sboxes.v	fblock.v	Substitution boxes for individual rounds
 	Y	perm1.v		key_gen.v	Perity drop for key generation	
 	Y	perm2.v		key_gen.v	Compression P-box for key generation
-	?	fblock.v	DES_round.v	The DES function f
--	N	key_gen.v	
+	Y	fblock.v	DES_round.v	The DES function f
+	Y	key_gen.v	DES_top.v	Simultaneously generates all 16, 48 bit keys
+	Y	keygenbase.v	key_gen.v	Logic of key_gen.v
 	Y	DES_round.v	DES_top.v	Performs the function of XORing leftmost bits
 						with fblock.
 -	N	DES_top.v	-		Top level module that incorporates all of the
