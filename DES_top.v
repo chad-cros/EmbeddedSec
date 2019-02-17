@@ -12,19 +12,25 @@
 `include "final.v"
 
 
-module DES_top (CIPHER_TEXT, CLK, PLAIN_TEXT, KEY)
+module DES_top (CIPHER_TEXT, PLAIN_TEXT, KEY)
 
-input CLK; 
 input [63:0] PLAIN_TEXT;
 input [63:0] KEY;
 output [63:0] CIPHER_TEXT;
 
-//16 bit array of keys with bit length of 48, used for round_key gen
+//16 arrays of keys with bit length of 48, used for round_key gen
 
 reg [47:0] round_key[15:0];
 
+//16 arrays of intermediate steps with bit length 64
+
+reg [63:0] intermediateStage[15:0];
+
 //First step is to generate the keys used in the DES System
-always@(posedge CLK) begin
+
+
+always@(KEY) begin
+    
     key_gen keygeneration(
         .r_key1(round_key[0]),
         .r_key2(round_key[1]),
@@ -44,44 +50,113 @@ always@(posedge CLK) begin
         .r_key16(round_key[15]),
         .KEY(KEY)
     );
-end
+   
+    init initialround(
+		.PT(PLAIN_TEXT),
+		.IT(intermediateStage[0])
+	);
 	
+    DES_round round1(
+	.round_out(intermediateStage[1]),
+	.round_in(intermediateStage[0]),
+	.round_key(round_key[0])
+    );
 
+    DES_round round2(
+        .round_out(intermediateStage[2]),
+        .round_in(intermediateStage[1]),
+        .round_key(round_key[1])
+    );
 
+    DES_round round3(
+        .round_out(intermediateStage[3]),
+        .round_in(intermediateStage[2]),
+        .round_key(round_key[2])
+    );
 
-//round()
+    DES_round round4(
+        .round_out(intermediateStage[4]),
+        .round_in(intermediateStage[3]),
+        .round_key(round_key[3])
+    );
 
-//inital
+    DES_round round5(
+        .round_out(intermediateStage[5]),
+        .round_in(intermediateStage[4]),
+        .round_key(round_key[4])
+    );
 
+    DES_round round6(
+        .round_out(intermediateStage[6]),
+        .round_in(intermediateStage[5]),
+        .round_key(round_key[5])
+    );
 
-//round1
+    DES_round round7(
+        .round_out(intermediateStage[7]),
+        .round_in(intermediateStage[6]),
+        .round_key(round_key[6])
+    );
 
-//round2
+    DES_round round8(
+        .round_out(intermediateStage[8]),
+        .round_in(intermediateStage[7]),
+        .round_key(round_key[7])
+    );
 
-//round3
+    DES_round round9(
+        .round_out(intermediateStage[9]),
+        .round_in(intermediateStage[8]),
+        .round_key(round_key[8])
+    );
 
-//round4
+    DES_round round10(
+        .round_out(intermediateStage[10]),
+        .round_in(intermediateStage[9]),
+        .round_key(round_key[9])
+    );
 
-//round5
+    DES_round round11(
+        .round_out(intermediateStage[11]),
+        .round_in(intermediateStage[10]),
+        .round_key(round_key[10])
+    );
 
-//round6
+    DES_round round12(
+        .round_out(intermediateStage[12]),
+        .round_in(intermediateStage[11]),
+        .round_key(round_key[11])
+    );
 
-//round7
+    DES_round round13(
+        .round_out(intermediateStage[13]),
+        .round_in(intermediateStage[12]),
+        .round_key(round_key[12])
+    );
 
-//round8
+    DES_round round14(
+        .round_out(intermediateStage[14]),
+        .round_in(intermediateStage[13]),
+        .round_key(round_key[13])
+    );
 
-//round9
+    DES_round round15(
+        .round_out(intermediateStage[15]),
+        .round_in(intermediateStage[14]),
+        .round_key(round_key[14])
+    );
 
-//round10
+    DES_round round16(
+        .round_out(intermediateStage[16]),
+        .round_in(intermediateStage[15]),
+        .round_key(round_key[15])
+    );
 
-//round11
+    final final(
+        .CT(CIPHER_TEXT),
+        .preoutput(intermediateStage[16])
+    );
 
-//round12
+end
 
-//round13
-
-//round14
-
-//round15
-
-//round16
+endmodule
