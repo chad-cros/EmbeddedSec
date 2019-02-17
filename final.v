@@ -4,7 +4,7 @@
 module final (CT, preoutput);
 
 	input [63:0] preoutput;
-	output [63:0] CT; //initial round text 
+	output [63:0] CT; //Final round text 
 	
 	//40 8 48 16 56 24 64 32 /*remember to subtract one so indicies are right*/
 	assign CT[0] = preoutput[39];
