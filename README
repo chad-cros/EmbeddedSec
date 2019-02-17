@@ -1,0 +1,18 @@
++---------------+---------------+---------------+---------------+
+|Completed?	|File name	|Instantiated	|Description	|
++---------------+---------------+---------------+---------------+
+	Y	Init.v		DES_top.v	Initial permutation block
+	Y	Final.v		DES_top.v	Final permutation block
+	Y	expansionP.v	fblock.v	Expansion P-box for individual rounds
+	Y	straightP.v	fblock.v	Straight P-box for individual rounds
+-	N	sboxes.v	fblock.v	Substitution boxes for individual rounds
+	Y	perm1.v		key_gen.v	Perity drop for key generation	
+	Y	perm2.v		key_gen.v	Compression P-box for key generation
+	?	fblock.v	DES_round.v	The DES function f
+-	N	key_gen.v	
+	Y	DES_round.v	DES_top.v	Performs the function of XORing leftmost bits
+						with fblock.
+-	N	DES_top.v	-		Top level module that incorporates all of the
+						instantiated modules.
+
+
