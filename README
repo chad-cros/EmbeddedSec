@@ -13,7 +13,7 @@
 	Y	keygenbase.v	key_gen.v	Logic of key_gen.v
 	Y	DES_round.v	DES_top.v	Performs the function of XORing leftmost bits
 						with fblock.
--	N	DES_top.v	-		Top level module that incorporates all of the
+	Y	DES_top.v	-		Top level module that incorporates all of the
 						instantiated modules.
 
 
