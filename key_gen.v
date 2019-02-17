@@ -1,3 +1,5 @@
+`include "keygenbase.v"
+
 // Round key generator
 //input is 64 bit key
 module key_gen (r_key1, r_key2, r_key3, r_key4, r_key5, r_key6, r_key7, r_key8, r_key9, r_key10, r_key11, r_key12, r_key13, r_key14, r_key15, r_key16, KEY);

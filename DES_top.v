@@ -9,7 +9,7 @@
 `include "expansionP.v"
 `include "sboxes.v"
 `include "straightP.v"
-`include "final"
+`include "final.v"
 
 
 module DES_top (CIPHER_TEXT, CLK, PLAIN_TEXT, KEY)

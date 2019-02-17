@@ -18,7 +18,7 @@ module DES_round (round_out, round_in, round_key);
 	assign round_out[63:32] = RightBits; //wire right half directly to left half of output
 	
 	//call f block
-	f fblock(
+	fblock fblock(
 		.Rout(fout),
 		.Rin(RightBits),
 		.r_key (round_key)
