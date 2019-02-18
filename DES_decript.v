@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+/*`timescale 1ns / 1ps
 `include "key_gen.v"
 `include "init.v"
 `include "perm1.v"
@@ -9,12 +9,12 @@
 `include "expansionP.v"
 `include "sboxes.v"
 `include "straightP.v"
-`include "final.v"
+`include "final.v"*/
 
 //Not much is different in this file compared to the original DES_top.v
 //Changes are marked with //===============
 
-module DES_decrypt (CIPHER_TEXT, PLAIN_TEXT, KEY)
+module DES_decrypt (CIPHER_TEXT, PLAIN_TEXT, KEY);
 
 input [63:0] CIPHER_TEXT;//==========
 input [63:0] KEY;
@@ -22,16 +22,16 @@ output [63:0] PLAIN_TEXT;//==========
 
 //16 arrays of keys with bit length of 48, used for round_key gen
 
-reg [47:0] round_key[15:0];
+wire [47:0] round_key[15:0];
 
 //16 arrays of intermediate steps with bit length 64
 
-reg [63:0] intermediateStage[15:0];
+wire [63:0] intermediateStage[16:0];
 
 //First step is to generate the keys used in the DES System
 
 
-always@(KEY) begin
+//always@(KEY) begin
     
     key_gen keygeneration(//========r_keys are swapped========
         .r_key1(round_key[15]),
@@ -55,7 +55,7 @@ always@(KEY) begin
    
     init initialround(//=====Swapped init stage with final stage========
 		.PT(intermediateStage[15]),
-		.IT(PLAIN_TEXT)
+		.IT(PLAIN_TEXT) //plaintext is output npw 
 	);
 	
     DES_round round1(
@@ -156,9 +156,9 @@ always@(KEY) begin
 
     final_perm fp(//====Swapped final stage with init stage======
         .CT(intermediateStage[0]),
-        .preoutput(CIPHER_TEXT)
+        .preoutput(CIPHER_TEXT) //cipher-text is input now 
     );
 
-end
+//end
 
 endmodule

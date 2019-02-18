@@ -28,10 +28,20 @@ module DES_test;
    // outputs
    wire [63:0] CIPHERTEXT;
    
+   //for decryption
+   reg [63:0] ciphertext_d;
+   wire [63:0] plaintext_d;
+   
    // Instantiate the Unit Under Test (UUT)
    DES_top uut (
 		.CIPHER_TEXT(CIPHERTEXT),
 		.PLAIN_TEXT(PLAINTEXT),
+		.KEY(KEY)
+   );
+   
+   DES_decrypt uut2 (
+		.CIPHER_TEXT(ciphertext_d), 
+		.PLAIN_TEXT(plaintext_d), 
 		.KEY(KEY)
    );
    
@@ -68,6 +78,10 @@ module DES_test;
       watchdog = watchdog +1;
      
    end
+   
+  
+	assign ciphertext_d = CIPHERTEXT; //needed to drive decryption
+	assign plaintext_d = PLAINTEXT; //needed to drive decryption
    
    // Kill the simulation if the watchdog hits 64K cycles
    always @*
