@@ -1,0 +1,298 @@
+ncverilog: 10.20-s073: (c) Copyright 1995-2011 Cadence Design Systems, Inc.
+TOOL:	ncverilog	10.20-s073: Started on Feb 17, 2019 at 19:03:19 CST
+ncverilog
+	+access+r
+	+gui
+	DES_test.v
+	DES_top.v
+file: DES_test.v
+		passed = 0;
+		     |
+ncvlog: *E,UNDIDN (DES_test.v,40|7): 'passed': undeclared identifier [12.5(IEEE)].
+			passTest(CIPHERTEXT, 64'h85E813540F0AB405, "Results of DES test", passed);
+			                                                                       |
+ncvlog: *E,UNDIDN (DES_test.v,54|74): 'passed': undeclared identifier [12.5(IEEE)].
+	module worklib.DES_test:v
+		errors: 2, warnings: 0
+file: DES_top.v
+	module worklib.keygenbase:v
+		errors: 0, warnings: 0
+module keygenbase(RoundKeyOut, LeftBitsOut, RightBitsOut, LeftBitsIn, RightBitsIn, R);
+                |
+ncvlog: *W,RECOME (keygenbase.v,4|16): recompiling design unit worklib.keygenbase:v.
+	First compiled from line 4 of keygenbase.v.
+(`include file: keygenbase.v line 4, file: DES_top.v line 5)
+	module worklib.keygenbase:v
+		errors: 0, warnings: 1
+	module worklib.fblock:v
+		errors: 0, warnings: 0
+	module worklib.sboxes:v
+		errors: 0, warnings: 0
+    key_gen keygeneration(
+                        |
+ncvlog: *E,MISEXX (DES_top.v,34|24): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+        .r_key1(round_key[0]),
+              |
+ncvlog: *E,USESVSW (DES_top.v,35|14): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .r_key2(round_key[1]),
+              |
+ncvlog: *E,USESVSW (DES_top.v,36|14): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .r_key3(round_key[2]),
+              |
+ncvlog: *E,USESVSW (DES_top.v,37|14): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .r_key4(round_key[3]),
+              |
+ncvlog: *E,USESVSW (DES_top.v,38|14): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .r_key5(round_key[4]),
+              |
+ncvlog: *E,USESVSW (DES_top.v,39|14): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .r_key6(round_key[5]),
+              |
+ncvlog: *E,USESVSW (DES_top.v,40|14): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .r_key7(round_key[6]),
+              |
+ncvlog: *E,USESVSW (DES_top.v,41|14): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .r_key8(round_key[7]),
+              |
+ncvlog: *E,USESVSW (DES_top.v,42|14): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .r_key9(round_key[8]),
+              |
+ncvlog: *E,USESVSW (DES_top.v,43|14): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .r_key10(round_key[9]),
+               |
+ncvlog: *E,USESVSW (DES_top.v,44|15): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .r_key11(round_key[10]),
+               |
+ncvlog: *E,USESVSW (DES_top.v,45|15): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .r_key12(round_key[11]),
+               |
+ncvlog: *E,USESVSW (DES_top.v,46|15): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .r_key13(round_key[12]),
+               |
+ncvlog: *E,USESVSW (DES_top.v,47|15): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .r_key14(round_key[13]),
+               |
+ncvlog: *E,USESVSW (DES_top.v,48|15): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .r_key15(round_key[14]),
+               |
+ncvlog: *E,USESVSW (DES_top.v,49|15): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .r_key16(round_key[15]),
+               |
+ncvlog: *E,USESVSW (DES_top.v,50|15): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .KEY(KEY)
+           |
+ncvlog: *E,USESVSW (DES_top.v,51|11): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    init initialround(
+                    |
+ncvlog: *E,MISEXX (DES_top.v,54|20): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+		.PT(PLAIN_TEXT),
+		  |
+ncvlog: *E,USESVSW (DES_top.v,55|4): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+		.IT(intermediateStage[0])
+		  |
+ncvlog: *E,USESVSW (DES_top.v,56|4): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    DES_round round1(
+                   |
+ncvlog: *E,MISEXX (DES_top.v,59|19): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+	.round_out(intermediateStage[1]),
+	         |
+ncvlog: *E,USESVSW (DES_top.v,60|10): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+	.round_in(intermediateStage[0]),
+	        |
+ncvlog: *E,USESVSW (DES_top.v,61|9): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+	.round_key(round_key[0])
+	         |
+ncvlog: *E,USESVSW (DES_top.v,62|10): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    DES_round round2(
+                   |
+ncvlog: *E,MISEXX (DES_top.v,65|19): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+        .round_out(intermediateStage[2]),
+                 |
+ncvlog: *E,USESVSW (DES_top.v,66|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_in(intermediateStage[1]),
+                |
+ncvlog: *E,USESVSW (DES_top.v,67|16): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_key(round_key[1])
+                 |
+ncvlog: *E,USESVSW (DES_top.v,68|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    DES_round round3(
+                   |
+ncvlog: *E,MISEXX (DES_top.v,71|19): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+        .round_out(intermediateStage[3]),
+                 |
+ncvlog: *E,USESVSW (DES_top.v,72|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_in(intermediateStage[2]),
+                |
+ncvlog: *E,USESVSW (DES_top.v,73|16): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_key(round_key[2])
+                 |
+ncvlog: *E,USESVSW (DES_top.v,74|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    DES_round round4(
+                   |
+ncvlog: *E,MISEXX (DES_top.v,77|19): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+        .round_out(intermediateStage[4]),
+                 |
+ncvlog: *E,USESVSW (DES_top.v,78|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_in(intermediateStage[3]),
+                |
+ncvlog: *E,USESVSW (DES_top.v,79|16): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_key(round_key[3])
+                 |
+ncvlog: *E,USESVSW (DES_top.v,80|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    DES_round round5(
+                   |
+ncvlog: *E,MISEXX (DES_top.v,83|19): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+        .round_out(intermediateStage[5]),
+                 |
+ncvlog: *E,USESVSW (DES_top.v,84|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_in(intermediateStage[4]),
+                |
+ncvlog: *E,USESVSW (DES_top.v,85|16): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_key(round_key[4])
+                 |
+ncvlog: *E,USESVSW (DES_top.v,86|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    DES_round round6(
+                   |
+ncvlog: *E,MISEXX (DES_top.v,89|19): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+        .round_out(intermediateStage[6]),
+                 |
+ncvlog: *E,USESVSW (DES_top.v,90|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_in(intermediateStage[5]),
+                |
+ncvlog: *E,USESVSW (DES_top.v,91|16): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_key(round_key[5])
+                 |
+ncvlog: *E,USESVSW (DES_top.v,92|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    DES_round round7(
+                   |
+ncvlog: *E,MISEXX (DES_top.v,95|19): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+        .round_out(intermediateStage[7]),
+                 |
+ncvlog: *E,USESVSW (DES_top.v,96|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_in(intermediateStage[6]),
+                |
+ncvlog: *E,USESVSW (DES_top.v,97|16): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_key(round_key[6])
+                 |
+ncvlog: *E,USESVSW (DES_top.v,98|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    DES_round round8(
+                   |
+ncvlog: *E,MISEXX (DES_top.v,101|19): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+        .round_out(intermediateStage[8]),
+                 |
+ncvlog: *E,USESVSW (DES_top.v,102|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_in(intermediateStage[7]),
+                |
+ncvlog: *E,USESVSW (DES_top.v,103|16): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_key(round_key[7])
+                 |
+ncvlog: *E,USESVSW (DES_top.v,104|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    DES_round round9(
+                   |
+ncvlog: *E,MISEXX (DES_top.v,107|19): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+        .round_out(intermediateStage[9]),
+                 |
+ncvlog: *E,USESVSW (DES_top.v,108|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_in(intermediateStage[8]),
+                |
+ncvlog: *E,USESVSW (DES_top.v,109|16): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_key(round_key[8])
+                 |
+ncvlog: *E,USESVSW (DES_top.v,110|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    DES_round round10(
+                    |
+ncvlog: *E,MISEXX (DES_top.v,113|20): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+        .round_out(intermediateStage[10]),
+                 |
+ncvlog: *E,USESVSW (DES_top.v,114|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_in(intermediateStage[9]),
+                |
+ncvlog: *E,USESVSW (DES_top.v,115|16): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_key(round_key[9])
+                 |
+ncvlog: *E,USESVSW (DES_top.v,116|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    DES_round round11(
+                    |
+ncvlog: *E,MISEXX (DES_top.v,119|20): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+        .round_out(intermediateStage[11]),
+                 |
+ncvlog: *E,USESVSW (DES_top.v,120|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_in(intermediateStage[10]),
+                |
+ncvlog: *E,USESVSW (DES_top.v,121|16): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_key(round_key[10])
+                 |
+ncvlog: *E,USESVSW (DES_top.v,122|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    DES_round round12(
+                    |
+ncvlog: *E,MISEXX (DES_top.v,125|20): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+        .round_out(intermediateStage[12]),
+                 |
+ncvlog: *E,USESVSW (DES_top.v,126|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_in(intermediateStage[11]),
+                |
+ncvlog: *E,USESVSW (DES_top.v,127|16): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_key(round_key[11])
+                 |
+ncvlog: *E,USESVSW (DES_top.v,128|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    DES_round round13(
+                    |
+ncvlog: *E,MISEXX (DES_top.v,131|20): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+        .round_out(intermediateStage[13]),
+                 |
+ncvlog: *E,USESVSW (DES_top.v,132|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_in(intermediateStage[12]),
+                |
+ncvlog: *E,USESVSW (DES_top.v,133|16): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_key(round_key[12])
+                 |
+ncvlog: *E,USESVSW (DES_top.v,134|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    DES_round round14(
+                    |
+ncvlog: *E,MISEXX (DES_top.v,137|20): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+        .round_out(intermediateStage[14]),
+                 |
+ncvlog: *E,USESVSW (DES_top.v,138|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_in(intermediateStage[13]),
+                |
+ncvlog: *E,USESVSW (DES_top.v,139|16): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_key(round_key[13])
+                 |
+ncvlog: *E,USESVSW (DES_top.v,140|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    DES_round round15(
+                    |
+ncvlog: *E,MISEXX (DES_top.v,143|20): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+        .round_out(intermediateStage[15]),
+                 |
+ncvlog: *E,USESVSW (DES_top.v,144|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_in(intermediateStage[14]),
+                |
+ncvlog: *E,USESVSW (DES_top.v,145|16): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_key(round_key[14])
+                 |
+ncvlog: *E,USESVSW (DES_top.v,146|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    DES_round round16(
+                    |
+ncvlog: *E,MISEXX (DES_top.v,149|20): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+        .round_out(intermediateStage[16]),
+                 |
+ncvlog: *E,USESVSW (DES_top.v,150|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_in(intermediateStage[15]),
+                |
+ncvlog: *E,USESVSW (DES_top.v,151|16): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .round_key(round_key[15])
+                 |
+ncvlog: *E,USESVSW (DES_top.v,152|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+    final final(
+              |
+ncvlog: *E,MISEXX (DES_top.v,155|14): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+        .CT(CIPHER_TEXT),
+          |
+ncvlog: *E,USESVSW (DES_top.v,156|10): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+        .preoutput(intermediateStage[16])
+                 |
+ncvlog: *E,USESVSW (DES_top.v,157|17): SystemVerilog named argument:  Use -sv switch to enable this SystemVerilog construct.
+	module worklib.DES_top:v
+		errors: 88, warnings: 0
+ncverilog: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
+TOOL:	ncverilog	10.20-s073: Exiting on Feb 17, 2019 at 19:03:20 CST  (total: 00:00:01)

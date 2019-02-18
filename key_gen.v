@@ -28,7 +28,7 @@ module key_gen (r_key1, r_key2, r_key3, r_key4, r_key5, r_key6, r_key7, r_key8, 
 	wire [55:0] p1;
 
 	//initial permutation
-	perm1 p1 (
+	perm1 p_1 (
 		.KEY(KEY), 
 		.subkey(p1)
 	);

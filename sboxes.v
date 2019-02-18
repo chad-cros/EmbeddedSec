@@ -2,26 +2,26 @@
 //8 s boxes for f block
 
 module sboxes(out, in);
-	input in[47:0];
-	output out[31:0];
+	input [47:0] in;
+	output [31:0] out;
 	
-	reg in1[5:0];
-	reg in2[5:0];
-	reg in3[5:0];
-	reg in4[5:0];
-	reg in5[5:0];
-	reg in6[5:0];
-	reg in7[5:0];
-	reg in8[5:0];
+	wire [5:0] in1;
+	wire [5:0] in2;
+	wire [5:0] in3;
+	wire [5:0] in4;
+	wire [5:0] in5;
+	wire [5:0] in6;
+	wire [5:0] in7;
+	wire [5:0] in8;
 	
-	reg out1[3:0];
-	reg out2[3:0];
-	reg out3[3:0];
-	reg out4[3:0];
-	reg out5[3:0];
-	reg out6[3:0];
-	reg out7[3:0];
-	reg out8[3:0];
+	reg [3:0] out1;
+	reg [3:0] out2;
+	reg [3:0] out3;
+	reg [3:0] out4;
+	reg [3:0] out5;
+	reg [3:0] out6;
+	reg [3:0] out7;
+	reg [3:0] out8;
 	
 	assign in1 = in[47:42];
 	assign in2 = in[41:36];
@@ -32,7 +32,7 @@ module sboxes(out, in);
 	assign in7 = in[11:6];
 	assign in8 = in[5:0];
 	
-    
+always @(in) begin
 //Sbox 1-------------------------------------------------
 casex (in1)
 6'b0xxxx0: begin
@@ -697,6 +697,7 @@ end
 	endcase
 end
 endcase
+end
 
 	assign out = {out1, out2, out3, out4, out5, out6, out7, out8};
 	

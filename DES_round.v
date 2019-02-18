@@ -3,14 +3,14 @@
 
 module DES_round (round_out, round_in, round_key);
 
-	input round_in[63:0];	//64 bit input from previous round
-	input round_key[47:0];	//48 bit key for specific round to be xored with left bits
-	output round_out [63:0];	//64 bit output to next round
+	input [63:0] round_in;	//64 bit input from previous round
+	input [47:0] round_key;	//48 bit key for specific round to be xored with left bits
+	output [63:0] round_out;	//64 bit output to next round
 	
-	wire LeftBits[31:0];	//Left 32 bits of input
-	wire RightBits[31:0];	//Right 32 bits of input
+	wire [31:0] LeftBits;	//Left 32 bits of input
+	wire [31:0] RightBits;	//Right 32 bits of input
 	
-	wire fout[31:0]; //output of f block
+	wire [31:0] fout; //output of f block
 	
 	assign LeftBits = round_in[63:32];
 	assign RightBits = round_in[31:0];

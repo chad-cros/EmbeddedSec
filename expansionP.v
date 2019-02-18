@@ -3,8 +3,8 @@
 
 module expansionP(out, in);
 
-	input in[31:0];
-	output out[47:0];
+	input [31:0] in;
+	output [47:0] out;
 	
 	/*
 	E BIT-SELECTION TABLE

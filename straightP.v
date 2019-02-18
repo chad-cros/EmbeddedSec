@@ -3,8 +3,8 @@
 
 module straightP(out, in);
 
-	input in[31:0];
-	output out[31:0];
+	input [31:0] in;
+	output [31:0] out;
 	
 	/*16 7 20 21
 	29 12 28 17

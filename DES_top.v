@@ -12,7 +12,7 @@
 `include "final.v"
 
 
-module DES_top (CIPHER_TEXT, PLAIN_TEXT, KEY)
+module DES_top (CIPHER_TEXT, PLAIN_TEXT, KEY);
 
 input [63:0] PLAIN_TEXT;
 input [63:0] KEY;

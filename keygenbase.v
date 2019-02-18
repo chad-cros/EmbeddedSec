@@ -15,8 +15,8 @@ module keygenbase(RoundKeyOut, LeftBitsOut, RightBitsOut, LeftBitsIn, RightBitsI
 	output [47:0] RoundKeyOut;
 
 	//Shift bits based on round
-	assign LeftBitsOut = ((R == 4'h0 || R == 4'h1 || R == 4'h8 || R == 4'h15) ? LeftBitsIn << 1 : LeftBitsIn << 2 );
-	assign RightBitsOut = ((R == 4'h0 || R == 4'h1 || R == 4'h8 || R == 4'h15) ? RightBitsIn << 1 : RightBitsIn << 2 );
+	assign LeftBitsOut = ((R == 4'h0 || R == 4'h1 || R == 4'h8 || R == 4'hF) ? LeftBitsIn << 1 : LeftBitsIn << 2 );
+	assign RightBitsOut = ((R == 4'h0 || R == 4'h1 || R == 4'h8 || R == 4'hF) ? RightBitsIn << 1 : RightBitsIn << 2 );
 
 	//Final step before key is generated. Input is Leftshifted Leftmost bits
 	//concatenated with rightshifted rightmost bits
