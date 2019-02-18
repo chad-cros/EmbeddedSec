@@ -11,19 +11,19 @@ module fblock (Rout, Rin, r_key);
 	wire [47:0] intermediate2;	//48 bit round key XORed with Expansion P out
 	wire [31:0] intermediate3;	//32 bits from 48 bit output of XOR
 	
-	eP expansionP(
+	expansionP ep(
 		.out(intermediate1),
 		.in(Rin)
 	);
 	
 	assign intermediate2 = intermediate1 ^ r_key;
 	
-	sbox sboxes(
+	sboxes sbox(
 		.out(intermediate3),
 		.in(intermediate2)
 	);
 	
-	sP straightP(
+	straightP sp(
 		.out(Rout),
 		.in(intermediate3)
 	);

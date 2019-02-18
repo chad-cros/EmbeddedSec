@@ -154,7 +154,7 @@ always@(KEY) begin
         .round_key(round_key[15])
     );
 
-    final final(//====Swapped final stage with init stage======
+    final_perm fp(//====Swapped final stage with init stage======
         .CT(intermediateStage[0]),
         .preoutput(CIPHER_TEXT)
     );

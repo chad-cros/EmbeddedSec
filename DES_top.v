@@ -9,7 +9,7 @@
 `include "expansionP.v"
 `include "sboxes.v"
 `include "straightP.v"
-`include "final.v"
+`include "final_perm.v"
 
 
 module DES_top (CIPHER_TEXT, PLAIN_TEXT, KEY);
@@ -20,16 +20,16 @@ output [63:0] CIPHER_TEXT;
 
 //16 arrays of keys with bit length of 48, used for round_key gen
 
-reg [47:0] round_key[15:0];
+wire [47:0] round_key[15:0];
 
 //16 arrays of intermediate steps with bit length 64
 
-reg [63:0] intermediateStage[15:0];
+wire [63:0] intermediateStage[15:0];
 
 //First step is to generate the keys used in the DES System
 
 
-always@(KEY) begin
+//always@(KEY) begin
     
     key_gen keygeneration(
         .r_key1(round_key[0]),
@@ -152,11 +152,11 @@ always@(KEY) begin
         .round_key(round_key[15])
     );
 
-    final final(
+    final_perm fp(
         .CT(CIPHER_TEXT),
         .preoutput(intermediateStage[16])
     );
 
-end
+//end
 
 endmodule

@@ -19,10 +19,11 @@ module DES_test;
    endtask
 
    //inputs
-   wire 		  CLK;
-   wire [63:0] KEY;
-   wire [63:0] PLAINTEXT;
+   reg 		  CLK;
+   reg [63:0] KEY;
+   reg [63:0] PLAINTEXT;
    reg [15:0] 	  watchdog;
+   reg passed;
    
    // outputs
    reg [63:0] CIPHERTEXT;
@@ -30,7 +31,6 @@ module DES_test;
    // Instantiate the Unit Under Test (UUT)
    DES_top uut (
 		.CIPHER_TEXT(CIPHERTEXT),
-		.CLK(CLK),
 		.PLAIN_TEXT(PLAINTEXT),
 		.KEY(KEY)
    );
