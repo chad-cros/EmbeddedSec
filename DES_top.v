@@ -151,10 +151,15 @@ wire [63:0] intermediateStage[16:0];
         .round_in(intermediateStage[15]),
         .round_key(round_key[15])
     );
+	
+	wire [31:0] tempL;
+	wire [31:0] tempR;
+	assign tempL = intermediateStage[16][63:32];
+	assign tempR = intermediateStage[16][31:0];
 
     final_perm fp(
         .CT(CIPHER_TEXT),
-        .preoutput(intermediateStage[16])
+        .preoutput({tempR, tempL})
     );
 
 //end
