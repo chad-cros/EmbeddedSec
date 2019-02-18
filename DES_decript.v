@@ -17,16 +17,16 @@
 module DES_decrypt (CIPHER_TEXT, PLAIN_TEXT, KEY);
 
 input [63:0] CIPHER_TEXT;//==========
-input [63:0] KEY;
+input reg [63:0] KEY;
 output [63:0] PLAIN_TEXT;//==========
 
 //16 arrays of keys with bit length of 48, used for round_key gen
 
-wire [47:0] round_key[15:0];
+reg [47:0] round_key[15:0];
 
 //16 arrays of intermediate steps with bit length 64
 
-wire [63:0] intermediateStage[16:0];
+reg [63:0] intermediateStage[16:0];
 
 //First step is to generate the keys used in the DES System
 
@@ -54,8 +54,8 @@ wire [63:0] intermediateStage[16:0];
     );
    
     init initialround(//=====Swapped init stage with final stage========
-		.PT(intermediateStage[15]),
-		.IT(PLAIN_TEXT) //plaintext is output npw 
+		.PT(PLAIN_TEXT),
+		.IT(intermediateStage[1]) //plaintext is output npw 
 	);
 	
     DES_round round1(
@@ -155,8 +155,8 @@ wire [63:0] intermediateStage[16:0];
     );
 
     final_perm fp(//====Swapped final stage with init stage======
-        .CT(intermediateStage[0]),
-        .preoutput(CIPHER_TEXT) //cipher-text is input now 
+        .CT(CIPHER_TEXT),
+        .preoutput(intermediateStage[15])//cipher-text is input now 
     );
 
 //end
