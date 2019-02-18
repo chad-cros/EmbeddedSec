@@ -5,8 +5,9 @@
 -XLMODE
 ./INCA_libs/irun.lnx86.10.20.nc
 -RUNMODE
-DES_test.v
-DES_top.v
+keytest.v
+key_gen.v
+-sv
 -CDSLIB
 ./INCA_libs/irun.lnx86.10.20.nc/cdsrun.lib
 -HDLVAR

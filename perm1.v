@@ -3,7 +3,7 @@
 //Parity drop for keygen
 
 module perm1(subkey, KEY);
-input [63:0] KEY;
+input reg [63:0] KEY;
 output [55:0] subkey;
 
 /* PC-1
