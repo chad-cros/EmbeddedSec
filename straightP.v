@@ -52,15 +52,15 @@ module straightP(out, in);
 	assign out[23] = in[8];
 	
 	//19 13 30 6
-	assign out[20] = in[18];
-	assign out[21] = in[12];
-	assign out[22] = in[29];
-	assign out[23] = in[5];
+	assign out[24] = in[18];
+	assign out[25] = in[12];
+	assign out[26] = in[29];
+	assign out[27] = in[5];
 	
 	//22 11 4 25
-	assign out[24] = in[21];
-	assign out[25] = in[10];
-	assign out[26] = in[3];
-	assign out[27] = in[24];
+	assign out[28] = in[21];
+	assign out[29] = in[10];
+	assign out[30] = in[3];
+	assign out[31] = in[24];
 
 endmodule
