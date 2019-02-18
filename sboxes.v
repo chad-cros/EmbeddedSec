@@ -23,14 +23,14 @@ module sboxes(out, in);
 	reg [3:0] out7;
 	reg [3:0] out8;
 	
-	assign in1 = in[47:42];
-	assign in2 = in[41:36];
-	assign in3 = in[35:30];
-	assign in4 = in[29:24];
-	assign in5 = in[23:18];
-	assign in6 = in[17:12];
-	assign in7 = in[11:6];
-	assign in8 = in[5:0];
+	assign in1 = in[5:0];
+	assign in2 = in[11:6];
+	assign in3 = in[17:12];
+	assign in4 = in[23:18];
+	assign in5 = in[29:24];
+	assign in6 = in[35:30];
+	assign in7 = in[41:36];
+	assign in8 = in[47:42];
 	
 always @(in) begin
 //Sbox 1-------------------------------------------------
