@@ -38,14 +38,14 @@ module init (IT, PT);
 	assign IT[23] = PT[5];
 	
 	//64 56 48 40 32 24 16 8
-	assign IT[24] = PT[57];
-	assign IT[25] = PT[49]; 
-	assign IT[26] = PT[41];
-	assign IT[27] = PT[33];
-	assign IT[28] = PT[25];
-	assign IT[29] = PT[17];
-	assign IT[30] = PT[9];
-	assign IT[31] = PT[1];
+	assign IT[24] = PT[63];
+	assign IT[25] = PT[55]; 
+	assign IT[26] = PT[47];
+	assign IT[27] = PT[39];
+	assign IT[28] = PT[31];
+	assign IT[29] = PT[23];
+	assign IT[30] = PT[15];
+	assign IT[31] = PT[7];
 	
 	//57 49 41 33 25 17 9 1
 	assign IT[32] = PT[56];
