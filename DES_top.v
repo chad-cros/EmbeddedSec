@@ -24,7 +24,7 @@ wire [47:0] round_key[15:0];
 
 //16 arrays of intermediate steps with bit length 64
 
-wire [63:0] intermediateStage[15:0];
+wire [63:0] intermediateStage[16:0];
 
 //First step is to generate the keys used in the DES System
 

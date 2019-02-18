@@ -26,7 +26,7 @@ module DES_test;
    reg passed;
    
    // outputs
-   reg [63:0] CIPHERTEXT;
+   wire [63:0] CIPHERTEXT;
    
    // Instantiate the Unit Under Test (UUT)
    DES_top uut (
