@@ -48,8 +48,8 @@ module DES_test;
    initial begin
 		// Initialize inputs
 		passed = 0;
-		KEY = 64'h133457799BBCDFF1;
-		PLAINTEXT = 64'h0123456789ABCDEF;
+		KEY = 64'h8FFB3DD99EEA2CC8;
+		PLAINTEXT = 64'hF7B3D591E6A2C480;
 		//ciphertext_d = 64'h0000000000000000;
 		
 		// Initialize Watchdog timer
