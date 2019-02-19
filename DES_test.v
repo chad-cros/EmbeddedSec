@@ -48,8 +48,8 @@ module DES_test;
    initial begin
 		// Initialize inputs
 		passed = 0;
-		KEY = 64'h8FFB3DD99EEA2CC8;
-		PLAINTEXT = 64'hF7B3D591E6A2C480;
+		KEY = 64'h133457799BBCDFF1; //64'h8FFB3DD99EEA2CC8;
+		PLAINTEXT = 64'h0123456789ABCDEF; //64'hF7B3D591E6A2C480;
 		//ciphertext_d = 64'h0000000000000000;
 		
 		// Initialize Watchdog timer
@@ -66,7 +66,7 @@ module DES_test;
 			
 		#1 
 			$display("Ciphertext for decryption %h", ciphertext_d);
-			#(60 * `ClockPeriod);
+			#(1000 * `ClockPeriod);
 			$display("Plaintext decrypted %h", plaintext_d);
 			passTest(plaintext_d, PLAINTEXT, "Results of DES decryption test", passed);
 		
@@ -90,7 +90,7 @@ module DES_test;
 	always @(*) begin 
 		ciphertext_d = CIPHERTEXT; //needed to drive decryption
 	end
-	assign 	plaintext_d = PLAINTEXT; //needed to drive decryption
+	//assign 	plaintext_d = PLAINTEXT; //needed to drive decryption
 
    
    // Kill the simulation if the watchdog hits 64K cycles

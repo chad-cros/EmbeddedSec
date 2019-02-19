@@ -7,18 +7,16 @@
 `include "DES_round.v"
 `include "fblock.v"
 `include "expansionP.v"
-`include "sboxes.v"
+`include "newsboxes.v"
 `include "straightP.v"
-`include "final.v"*/
+`include "final_perm.v"*/
 
-//Not much is different in this file compared to the original DES_top.v
-//Changes are marked with //===============
 
 module DES_decrypt (CIPHER_TEXT, PLAIN_TEXT, KEY);
 
-input [63:0] CIPHER_TEXT;//==========
+input [63:0] CIPHER_TEXT;
 input reg [63:0] KEY;
-output [63:0] PLAIN_TEXT;//==========
+output [63:0] PLAIN_TEXT;
 
 //16 arrays of keys with bit length of 48, used for round_key gen
 
@@ -32,8 +30,8 @@ reg [63:0] intermediateStage[16:0];
 
 
 //always@(KEY) begin
-    
-    key_gen keygeneration(//========r_keys are swapped========
+
+    key_gen keygeneration(
         .r_key1(round_key[15]),
         .r_key2(round_key[14]),
         .r_key3(round_key[13]),
@@ -53,9 +51,9 @@ reg [63:0] intermediateStage[16:0];
         .KEY(KEY)
     );
    
-    init initialround(//=====Swapped init stage with final stage========
-		.PT(PLAIN_TEXT),
-		.IT(intermediateStage[1]) //plaintext is output npw 
+    init initialround(
+		.PT(CIPHER_TEXT),
+		.IT(intermediateStage[0])
 	);
 	
     DES_round round1(
@@ -153,12 +151,17 @@ reg [63:0] intermediateStage[16:0];
         .round_in(intermediateStage[15]),
         .round_key(round_key[15])
     );
+	
+	wire [31:0] tempL;
+	wire [31:0] tempR;
+	assign tempL = intermediateStage[16][63:32];
+	assign tempR = intermediateStage[16][31:0];
 
-    final_perm fp(//====Swapped final stage with init stage======
-        .CT(CIPHER_TEXT),
-        .preoutput(intermediateStage[15])//cipher-text is input now 
+    final_perm fp(
+        .CT(PLAIN_TEXT),
+        .preoutput({tempR, tempL})
     );
 
-//end
+
 
 endmodule
