@@ -1,10 +1,10 @@
 //sboxes.v
 //8 s boxes for f block
 
-module sboxes(out, in);
+module sboxes(sout, in);
 	input [47:0] in;
 
-	output reg [31:0] out;
+	output [31:0] sout;
 
 	
 	wire [5:0] in1;
@@ -34,7 +34,7 @@ module sboxes(out, in);
 	assign in7 = in[11:6];
 	assign in8 = in[5:0];
 	
-always @(in) begin
+always @(*) begin
 
 case (in1)
 	6'b000000: begin out1 = 4'he; end
@@ -572,8 +572,8 @@ case (in8)
 	6'b111111: begin out8 = 4'hb; end
 endcase
 
-out <= {out1, out2, out3, out4, out5, out6, out7, out8};
+
 
 end
-
+assign sout = {out1, out2, out3, out4, out5, out6, out7, out8};
 endmodule

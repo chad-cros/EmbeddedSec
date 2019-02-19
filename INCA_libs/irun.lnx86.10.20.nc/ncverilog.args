@@ -4,6 +4,7 @@
 //
 +access+r
 +gui
-keytest.v
-key_gen.v
+DES_test.v
+DES_top.v
+DES_decript.v
 -sv

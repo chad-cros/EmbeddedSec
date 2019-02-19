@@ -1,16 +1,44 @@
 ncverilog: 10.20-s073: (c) Copyright 1995-2011 Cadence Design Systems, Inc.
-TOOL:	ncverilog	10.20-s073: Started on Feb 18, 2019 at 16:21:10 CST
+TOOL:	ncverilog	10.20-s073: Started on Feb 18, 2019 at 19:01:06 CST
 ncverilog
 	+access+r
 	+gui
-	keytest.v
-	key_gen.v
+	DES_test.v
+	DES_top.v
+	DES_decript.v
 	-sv
-Recompiling... reason: file './keygenbase.v' is newer than expected.
-	expected: Mon Feb 18 16:04:54 2019
-	actual:   Mon Feb 18 16:20:46 2019
-file: key_gen.v
+Recompiling... reason: file './newsboxes.v' is newer than expected.
+	expected: Mon Feb 18 18:59:00 2019
+	actual:   Mon Feb 18 19:00:57 2019
+file: DES_top.v
+	module worklib.perm1:v
+		errors: 0, warnings: 0
 	module worklib.keygenbase:v
+		errors: 0, warnings: 0
+	module worklib.perm2:v
+		errors: 0, warnings: 0
+module perm1(subkey, KEY);
+           |
+ncvlog: *W,RECOME (perm1.v,5|11): recompiling design unit worklib.perm1:v.
+	First compiled from line 5 of perm1.v.
+(`include file: perm1.v line 5, file: DES_top.v line 4)
+	module worklib.perm1:v
+		errors: 0, warnings: 1
+module keygenbase(RoundKeyOut, LeftBitsOut, RightBitsOut, LeftBitsIn, RightBitsIn, R);
+                |
+ncvlog: *W,RECOME (keygenbase.v,4|16): recompiling design unit worklib.keygenbase:v.
+	First compiled from line 4 of keygenbase.v.
+(`include file: keygenbase.v line 4, file: DES_top.v line 5)
+	module worklib.keygenbase:v
+		errors: 0, warnings: 1
+module perm2(round_key_i, intermediate);
+           |
+ncvlog: *W,RECOME (perm2.v,6|11): recompiling design unit worklib.perm2:v.
+	First compiled from line 6 of perm2.v.
+(`include file: perm2.v line 6, file: DES_top.v line 6)
+	module worklib.perm2:v
+		errors: 0, warnings: 1
+	module worklib.sboxes:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
@@ -18,19 +46,27 @@ file: key_gen.v
 	Generating native compiled code:
 		worklib.keygenbase:v <0x45501d17>
 			streams:   3, words:  1180
+		worklib.perm1:v <0x6b49e4a3>
+			streams:   1, words:  1643
+		worklib.perm2:v <0x0347524f>
+			streams:   1, words:  1427
+		worklib.sboxes:v <0x02354742>
+			streams:   3, words: 16029
 	Loading native compiled code:     .................... Done
 	Building instance specific data structures.
 	Design hierarchy summary:
-		                 Instances  Unique
-		Modules:                35       5
-		Registers:               2       2
-		Scalar wires:          824       -
-		Vectored wires:         68       -
-		Initial blocks:          1       1
-		Cont. assignments:      49     106
-		Pseudo assignments:     36      21
-		Simulation timescale:  1ps
-	Writing initial simulation snapshot: worklib.keytest:v
+		                  Instances  Unique
+		Modules:                299      16
+		Resolved nets:            0       1
+		Registers:              272      23
+		Scalar wires:          7024       -
+		Vectored wires:         722       -
+		Always blocks:           35       4
+		Initial blocks:           2       2
+		Cont. assignments:      392     411
+		Pseudo assignments:     203     153
+		Simulation timescale:   1ps
+	Writing initial simulation snapshot: worklib.DES_test:v
 
 -------------------------------------
 Relinquished control to SimVision...
@@ -38,13 +74,17 @@ ncsim>
 ncsim> source /softwares/Linux/cadence/INCISIV102/tools/inca/files/ncsimrc
 ncsim> database -open waves -into waves.shm -default
 Created default SHM database waves
-ncsim> probe -create -shm keytest.k.KEY keytest.k.LBO0 keytest.k.LBO1 keytest.k.LBO2 keytest.k.LBO3 keytest.k.LBO4 keytest.k.LBO5 keytest.k.LBO6 keytest.k.LBO7 keytest.k.LBO8 keytest.k.LBO9 keytest.k.LBO10 keytest.k.LBO11 keytest.k.LBO12 keytest.k.LBO13 keytest.k.LBO14 keytest.k.LBO15 keytest.k.RBO0 keytest.k.RBO1 keytest.k.RBO2 keytest.k.RBO3 keytest.k.RBO4 keytest.k.RBO5 keytest.k.RBO6 keytest.k.RBO7 keytest.k.RBO8 keytest.k.RBO9 keytest.k.RBO10 keytest.k.RBO11 keytest.k.RBO12 keytest.k.RBO13 keytest.k.RBO14 keytest.k.RBO15 keytest.k.p1 keytest.k.r_key1 keytest.k.r_key2 keytest.k.r_key3 keytest.k.r_key4 keytest.k.r_key5 keytest.k.r_key6 keytest.k.r_key7 keytest.k.r_key8 keytest.k.r_key9 keytest.k.r_key10 keytest.k.r_key11 keytest.k.r_key12 keytest.k.r_key13 keytest.k.r_key14 keytest.k.r_key15 keytest.k.r_key16
+ncsim> probe -create -shm DES_test.uut.CIPHER_TEXT DES_test.uut.KEY DES_test.uut.PLAIN_TEXT DES_test.uut.intermediateStage DES_test.uut.round_key DES_test.uut.tempL DES_test.uut.tempR DES_test.uut.fp.CT DES_test.uut.fp.preoutput DES_test.uut.initialround.IT DES_test.uut.initialround.PT DES_test.uut.round1.LeftBits DES_test.uut.round1.RightBits DES_test.uut.round1.fout DES_test.uut.round1.round_in DES_test.uut.round1.round_key DES_test.uut.round1.round_out DES_test.uut.round1.fblock.Rin DES_test.uut.round1.fblock.Rout DES_test.uut.round1.fblock.intermediate1 DES_test.uut.round1.fblock.intermediate2 DES_test.uut.round1.fblock.intermediate3 DES_test.uut.round1.fblock.intermediate22 DES_test.uut.round1.fblock.intermediate33 DES_test.uut.round1.fblock.r_key DES_test.uut.round1.fblock.ep.in DES_test.uut.round1.fblock.ep.out DES_test.uut.round1.fblock.es.originalInput DES_test.uut.round1.fblock.es.swappedOutput DES_test.uut.round1.fblock.es2.originalInput DES_test.uut.round1.fblock.es2.swappedOutput DES_test.uut.round1.fblock.sbox.in DES_test.uut.round1.fblock.sbox.in1 DES_test.uut.round1.fblock.sbox.in2 DES_test.uut.round1.fblock.sbox.in3 DES_test.uut.round1.fblock.sbox.in4 DES_test.uut.round1.fblock.sbox.in5 DES_test.uut.round1.fblock.sbox.in6 DES_test.uut.round1.fblock.sbox.in7 DES_test.uut.round1.fblock.sbox.in8 DES_test.uut.round1.fblock.sbox.out1 DES_test.uut.round1.fblock.sbox.out2 DES_test.uut.round1.fblock.sbox.out3 DES_test.uut.round1.fblock.sbox.out4 DES_test.uut.round1.fblock.sbox.out5 DES_test.uut.round1.fblock.sbox.out6 DES_test.uut.round1.fblock.sbox.out7 DES_test.uut.round1.fblock.sbox.out8 DES_test.uut.round1.fblock.sbox.sout DES_test.uut.round1.fblock.sp.in DES_test.uut.round1.fblock.sp.out
 Created probe 1
 ncsim> run
-Key: 8ffb3dd99eea2cc8
-Round key 1 4e0e3ff740d8
-Simulation complete via $finish(1) at time 25 NS + 0
-./keytest.v:52 		$finish;
+Plaintext f7b3d591e6a2c480
+Ciphertext a02950f02ac817a1
+   Results of DES encryption test failed: 0xa02950f02ac817a1 should be 0x85e813540f0ab405
+Ciphertext for decryption a02950f02ac817a1
+Plaintext decrypted f7b3d591e6a2c480
+   Results of DES decryption test passed
+Simulation complete via $finish(1) at time 127322 NS + 0
+./DES_test.v:73 		$finish;
 ncsim> ^C
 ncsim> exit
-TOOL:	ncverilog	10.20-s073: Exiting on Feb 18, 2019 at 16:26:12 CST  (total: 00:05:02)
+TOOL:	ncverilog	10.20-s073: Exiting on Feb 18, 2019 at 19:07:14 CST  (total: 00:06:08)

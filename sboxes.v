@@ -1,9 +1,9 @@
 //sboxes.v
 //8 s boxes for f block
 
-module sboxes(out, in);
+module sboxes(sout, in);
 	input [47:0] in;
-	output [31:0] out;
+	output [31:0] sout;
 		
 	wire [5:0] in1;
 	wire [5:0] in2;
@@ -699,6 +699,6 @@ end
 endcase
 end
 
-	assign out = {out1, out2, out3, out4, out5, out6, out7, out8};
+	assign sout = {out1, out2, out3, out4, out5, out6, out7, out8};
 	
 endmodule

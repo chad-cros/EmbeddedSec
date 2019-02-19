@@ -2,5 +2,6 @@
 // File created by:  ncverilog
 // Do not modify this file
 //
-/home/ugrads/c/culmegan/Hardware_Lab1/EmbeddedSec/keytest.v
-/home/ugrads/c/culmegan/Hardware_Lab1/EmbeddedSec/key_gen.v
+/home/ugrads/c/culmegan/Hardware_Lab1/EmbeddedSec/DES_test.v
+/home/ugrads/c/culmegan/Hardware_Lab1/EmbeddedSec/DES_top.v
+/home/ugrads/c/culmegan/Hardware_Lab1/EmbeddedSec/DES_decript.v

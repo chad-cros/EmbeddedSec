@@ -7,7 +7,7 @@
 `include "DES_round.v"
 `include "fblock.v"
 `include "expansionP.v"
-`include "sboxes.v"
+`include "newsboxes.v"
 `include "straightP.v"
 `include "final_perm.v"
 

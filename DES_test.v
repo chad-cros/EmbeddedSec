@@ -87,7 +87,7 @@ module DES_test;
    end
    
   
-	always @(CIPHERTEXT) begin 
+	always @(*) begin 
 		ciphertext_d = CIPHERTEXT; //needed to drive decryption
 	end
 	assign 	plaintext_d = PLAINTEXT; //needed to drive decryption

@@ -28,7 +28,7 @@ module fblock (Rout, Rin, r_key);
 	);
 	
 	sboxes sbox(
-		.out(intermediate3),
+		.sout(intermediate3),
 		.in(intermediate22)
 	);
 	
