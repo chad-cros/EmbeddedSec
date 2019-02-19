@@ -69,7 +69,7 @@ module final_perm (CT, preoutput);
 	//34 2 42 10 50 18 58 26
 	assign CT[48] = preoutput[33];
 	assign CT[49] = preoutput[1]; 
-	assign CT[50] = preoutput[43];
+	assign CT[50] = preoutput[41];
 	assign CT[51] = preoutput[9];
 	assign CT[52] = preoutput[49];
 	assign CT[53] = preoutput[17];
