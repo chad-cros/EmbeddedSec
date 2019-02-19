@@ -3,13 +3,10 @@
 
 module sboxes(out, in);
 	input [47:0] in;
-<<<<<<< HEAD
+
 	output reg [31:0] out;
+
 	
-=======
-	output [31:0] out;
-		
->>>>>>> ae39a35750f195fc6511f5e2e2ca680829c352bc
 	wire [5:0] in1;
 	wire [5:0] in2;
 	wire [5:0] in3;
