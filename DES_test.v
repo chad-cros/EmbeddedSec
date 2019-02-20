@@ -73,7 +73,7 @@ module DES_test;
 			passTest(plaintext_d, PLAINTEXT, "Results of DES decryption test", passed);
 			
 		#5
-		/*	KEY = 64'h133457799BBCDFF1;
+			KEY = 64'h133457799BBCDFF1;
 			PLAINTEXT = 64'h0123456789ABCDEF; 
 		#5
 			$display ("\nTest 2");
@@ -88,7 +88,7 @@ module DES_test;
 			#(1000 * `ClockPeriod);
 			$display("Plaintext decrypted %h", plaintext_d);
 			passTest(plaintext_d, PLAINTEXT, "Results of DES decryption test", passed);
-		*/
+		
 		$finish;
 		end
 		
