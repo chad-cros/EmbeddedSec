@@ -1,5 +1,5 @@
 ncverilog: 10.20-s073: (c) Copyright 1995-2011 Cadence Design Systems, Inc.
-TOOL:	ncverilog	10.20-s073: Started on Feb 19, 2019 at 18:39:18 CST
+TOOL:	ncverilog	10.20-s073: Started on Feb 19, 2019 at 18:52:03 CST
 ncverilog
 	+access+r
 	+gui
@@ -7,9 +7,9 @@ ncverilog
 	DES_top.v
 	DES_decript.v
 	-sv
-Recompiling... reason: file './DES_test.v' is newer than expected.
-	expected: Tue Feb 19 18:23:32 2019
-	actual:   Tue Feb 19 18:39:07 2019
+Recompiling... reason: file './DES_decript.v' is newer than expected.
+	expected: Tue Feb 19 18:27:05 2019
+	actual:   Tue Feb 19 18:51:55 2019
 file: DES_test.v
 	module worklib.DES_test:v
 		errors: 0, warnings: 0
@@ -41,10 +41,15 @@ ncvlog: *W,RECOME (perm2.v,6|11): recompiling design unit worklib.perm2:v.
 (`include file: perm2.v line 6, file: DES_top.v line 6)
 	module worklib.perm2:v
 		errors: 0, warnings: 1
+file: DES_decript.v
+	module worklib.DES_decrypt:v
+		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
+		worklib.DES_decrypt:v <0x476128a5>
+			streams:   3, words:   375
 		worklib.DES_test:v <0x157d5bf9>
 			streams:   9, words:  9643
 		worklib.keygenbase:v <0x45501d17>
@@ -58,13 +63,13 @@ ncvlog: *W,RECOME (perm2.v,6|11): recompiling design unit worklib.perm2:v.
 	Design hierarchy summary:
 		                  Instances  Unique
 		Modules:                299      16
-		Registers:              272      23
+		Registers:              268      19
 		Scalar wires:          7024       -
-		Vectored wires:         724       -
+		Vectored wires:         594       -
 		Always blocks:           35       4
 		Initial blocks:           2       2
 		Cont. assignments:      394     413
-		Pseudo assignments:     205     155
+		Pseudo assignments:      75      25
 		Simulation timescale:   1ps
 	Writing initial simulation snapshot: worklib.DES_test:v
 
@@ -72,10 +77,6 @@ ncvlog: *W,RECOME (perm2.v,6|11): recompiling design unit worklib.perm2:v.
 Relinquished control to SimVision...
 ncsim> 
 ncsim> source /softwares/Linux/cadence/INCISIV102/tools/inca/files/ncsimrc
-ncsim> database -open waves -into waves.shm -default
-Created default SHM database waves
-ncsim> probe -create -shm DES_test.uut.fp.CT DES_test.uut.fp.preoutput DES_test.uut.initialround.IT DES_test.uut.initialround.PT DES_test.uut.keygeneration.KEY DES_test.uut.keygeneration.LBO0 DES_test.uut.keygeneration.LBO1 DES_test.uut.keygeneration.LBO2 DES_test.uut.keygeneration.LBO3 DES_test.uut.keygeneration.LBO4 DES_test.uut.keygeneration.LBO5 DES_test.uut.keygeneration.LBO6 DES_test.uut.keygeneration.LBO7 DES_test.uut.keygeneration.LBO8 DES_test.uut.keygeneration.LBO9 DES_test.uut.keygeneration.LBO10 DES_test.uut.keygeneration.LBO11 DES_test.uut.keygeneration.LBO12 DES_test.uut.keygeneration.LBO13 DES_test.uut.keygeneration.LBO14 DES_test.uut.keygeneration.LBO15 DES_test.uut.keygeneration.RBO0 DES_test.uut.keygeneration.RBO1 DES_test.uut.keygeneration.RBO2 DES_test.uut.keygeneration.RBO3 DES_test.uut.keygeneration.RBO4 DES_test.uut.keygeneration.RBO5 DES_test.uut.keygeneration.RBO6 DES_test.uut.keygeneration.RBO7 DES_test.uut.keygeneration.RBO8 DES_test.uut.keygeneration.RBO9 DES_test.uut.keygeneration.RBO10 DES_test.uut.keygeneration.RBO11 DES_test.uut.keygeneration.RBO12 DES_test.uut.keygeneration.RBO13 DES_test.uut.keygeneration.RBO14 DES_test.uut.keygeneration.RBO15 DES_test.uut.keygeneration.p1 DES_test.uut.keygeneration.p1wire DES_test.uut.keygeneration.r_key1 DES_test.uut.keygeneration.r_key2 DES_test.uut.keygeneration.r_key3 DES_test.uut.keygeneration.r_key4 DES_test.uut.keygeneration.r_key5 DES_test.uut.keygeneration.r_key6 DES_test.uut.keygeneration.r_key7 DES_test.uut.keygeneration.r_key8 DES_test.uut.keygeneration.r_key9 DES_test.uut.keygeneration.r_key10 DES_test.uut.keygeneration.r_key11 DES_test.uut.keygeneration.r_key12 DES_test.uut.keygeneration.r_key13 DES_test.uut.keygeneration.r_key14 DES_test.uut.keygeneration.r_key15 DES_test.uut.keygeneration.r_key16 DES_test.uut.round1.LeftBits DES_test.uut.round1.RightBits DES_test.uut.round1.fout DES_test.uut.round1.round_in DES_test.uut.round1.round_key DES_test.uut.round1.round_out DES_test.uut.round2.LeftBits DES_test.uut.round2.RightBits DES_test.uut.round2.fout DES_test.uut.round2.round_in DES_test.uut.round2.round_key DES_test.uut.round2.round_out DES_test.uut.round3.LeftBits DES_test.uut.round3.RightBits DES_test.uut.round3.fout DES_test.uut.round3.round_in DES_test.uut.round3.round_key DES_test.uut.round3.round_out DES_test.uut.round4.LeftBits DES_test.uut.round4.RightBits DES_test.uut.round4.fout DES_test.uut.round4.round_in DES_test.uut.round4.round_key DES_test.uut.round4.round_out DES_test.uut.round5.LeftBits DES_test.uut.round5.RightBits DES_test.uut.round5.fout DES_test.uut.round5.round_in DES_test.uut.round5.round_key DES_test.uut.round5.round_out DES_test.uut.round6.LeftBits DES_test.uut.round6.RightBits DES_test.uut.round6.fout DES_test.uut.round6.round_in DES_test.uut.round6.round_key DES_test.uut.round6.round_out DES_test.uut.round7.LeftBits DES_test.uut.round7.RightBits DES_test.uut.round7.fout DES_test.uut.round7.round_in DES_test.uut.round7.round_key DES_test.uut.round7.round_out DES_test.uut.round8.LeftBits DES_test.uut.round8.RightBits DES_test.uut.round8.fout DES_test.uut.round8.round_in DES_test.uut.round8.round_key DES_test.uut.round8.round_out DES_test.uut.round9.LeftBits DES_test.uut.round9.RightBits DES_test.uut.round9.fout DES_test.uut.round9.round_in DES_test.uut.round9.round_key DES_test.uut.round9.round_out DES_test.uut.round10.LeftBits DES_test.uut.round10.RightBits DES_test.uut.round10.fout DES_test.uut.round10.round_in DES_test.uut.round10.round_key DES_test.uut.round10.round_out DES_test.uut.round11.LeftBits DES_test.uut.round11.RightBits DES_test.uut.round11.fout DES_test.uut.round11.round_in DES_test.uut.round11.round_key DES_test.uut.round11.round_out DES_test.uut.round12.LeftBits DES_test.uut.round12.RightBits DES_test.uut.round12.fout DES_test.uut.round12.round_in DES_test.uut.round12.round_key DES_test.uut.round12.round_out DES_test.uut.round13.LeftBits DES_test.uut.round13.RightBits DES_test.uut.round13.fout DES_test.uut.round13.round_in DES_test.uut.round13.round_key DES_test.uut.round13.round_out DES_test.uut.round14.LeftBits DES_test.uut.round14.RightBits DES_test.uut.round14.fout DES_test.uut.round14.round_in DES_test.uut.round14.round_key DES_test.uut.round14.round_out DES_test.uut.round15.LeftBits DES_test.uut.round15.RightBits DES_test.uut.round15.fout DES_test.uut.round15.round_in DES_test.uut.round15.round_key DES_test.uut.round15.round_out DES_test.uut.round16.LeftBits DES_test.uut.round16.RightBits DES_test.uut.round16.fout DES_test.uut.round16.round_in DES_test.uut.round16.round_key DES_test.uut.round16.round_out
-Created probe 1
 ncsim> run
 Test 1
 Key used is 8ffb3dd99eea2cc8
@@ -90,7 +91,7 @@ Test 2
 Key used is 133457799bbcdff1
 Plaintext 0123456789abcdef
 Ciphertext ac0a339f8f67c3c8
-   Results of DES encryption test failed: 0xac0a339f8f67c3c8 should be 0xa02d50f02ac817a1
+   Results of DES encryption test passed
 Ciphertext for decryption ac0a339f8f67c3c8
 Plaintext decrypted 0123456789abcdef
    Results of DES decryption test passed
@@ -98,4 +99,4 @@ Simulation complete via $finish(1) at time 480133 NS + 0
 ./DES_test.v:92 		$finish;
 ncsim> ^C
 ncsim> exit
-TOOL:	ncverilog	10.20-s073: Exiting on Feb 19, 2019 at 18:45:07 CST  (total: 00:05:49)
+TOOL:	ncverilog	10.20-s073: Exiting on Feb 19, 2019 at 19:03:44 CST  (total: 00:11:41)
