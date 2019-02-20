@@ -12,8 +12,8 @@ module DES_round (round_out, round_in, round_key);
 	
 	wire [31:0] fout; //output of f block
 	
-	assign LeftBits = round_in[31:0];
-	assign RightBits = round_in[63:32];
+	assign LeftBits = round_in[31:0]; //most significant bits go on left
+	assign RightBits = round_in[63:32]; //least significant bits go on right
 	
 	assign round_out[31:0] = RightBits; //wire right half directly to left half of output
 	

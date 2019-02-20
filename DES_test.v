@@ -9,6 +9,7 @@
 
 module DES_test; 
 
+	//checks if test was passed given expected and actual outputs
 	task passTest;
       input [63:0] actualOut, expectedOut;
       input [`STRLEN*8:0] testType;
@@ -19,10 +20,10 @@ module DES_test;
    endtask
 
    //inputs
-   reg 		  CLK;
+   reg 		  CLK; //not really needed
    reg [63:0] KEY;
    reg [63:0] PLAINTEXT;
-   reg [15:0] 	  watchdog;
+   reg [15:0] 	  watchdog; //not really needed
    reg passed;
    
    // outputs
@@ -32,13 +33,14 @@ module DES_test;
    reg [63:0] ciphertext_d;
    wire [63:0] plaintext_d;
    
-   // Instantiate the Unit Under Test (UUT)
+   // Instantiate the Unit Under Test (UUT) Encryption
    DES_top uut (
 		.CIPHER_TEXT(CIPHERTEXT),
 		.PLAIN_TEXT(PLAINTEXT),
 		.KEY(KEY)
    );
-   
+    
+	//Instantiate Decryption
    DES_decrypt uut2 (
 		.CIPHER_TEXT(ciphertext_d), 
 		.PLAIN_TEXT(plaintext_d), 
@@ -46,7 +48,7 @@ module DES_test;
    );
    
    initial begin
-		// Initialize inputs
+		// Initialize inputs for TEST 1
 		passed = 0;
 		KEY = 64'h8FFB3DD99EEA2CC8; //64'h8FFB3DD99EEA2CC8; //133457799BBCDFF1; //
 		PLAINTEXT = 64'hF7B3D591E6A2C480; //0123456789ABCDEF; //64'hF7B3D591E6A2C480;
@@ -73,6 +75,7 @@ module DES_test;
 			passTest(plaintext_d, PLAINTEXT, "Results of DES decryption test", passed);
 			
 		#5
+		//TEST 2
 			KEY = 64'h133457799BBCDFF1;
 			PLAINTEXT = 64'h0123456789ABCDEF; 
 		#5
@@ -107,12 +110,10 @@ module DES_test;
    
   
 	always @(*) begin 
-		ciphertext_d = CIPHERTEXT; //needed to drive decryption
+		ciphertext_d = CIPHERTEXT; //needed to drive decryption (regs instead of wires)
 	end
-	//assign 	plaintext_d = PLAINTEXT; //needed to drive decryption
-
-   
-   // Kill the simulation if the watchdog hits 64K cycles
+	   
+   // Kill the simulation if the watchdog hits 64K cycles - shouldn't ever happen - no while loops
    always @*
      if (watchdog == 16'hFFFF)
      begin
