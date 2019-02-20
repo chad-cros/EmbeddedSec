@@ -15,29 +15,31 @@ module fblock (Rout, Rin, r_key);
 	wire [31:0] intermediate3;	//32 bits from 48 bit output of XOR
 	wire [31:0] intermediate33; //flip bits of intermediate3
 	
-	expansionP ep(
+	expansionP ep( //Expansion permutation: takes 32 bit input and converts to 48 bits
 		.out(intermediate1),
 		.in(Rin)
 	);
 	
-	assign intermediate2 = intermediate1 ^ r_key;
+	assign intermediate2 = intermediate1 ^ r_key; //XOR with round key
 	
-	endianSwap48 es (
+	endianSwap48 es ( //change from little endian to big endian to prepare for sboxes
 		.swappedOutput(intermediate22),
 		.originalInput(intermediate2)	
 	);
 	
-	sboxes sbox(
+	sboxes sbox( //s-boxes: takes 48 bit input, divides into 8 groups of 6
+				//sends each group of 6 bits to corresponding s-box, 
+				//each s-box converts 6 bits to 4 bits, then 8 groups of 4 are concatenated
 		.sout(intermediate3),
 		.in(intermediate22)
 	);
 	
-	endianSwap32 es2 (
+	endianSwap32 es2 ( //change from big endian back to little endian to proceed with algorithm
 		.swappedOutput(intermediate33),
 		.originalInput(intermediate3)
 	);
 	
-	straightP sp(
+	straightP sp( //straight permutation box: 32 bit input, 32 bit output
 		.out(Rout),
 		.in(intermediate33)
 	);
