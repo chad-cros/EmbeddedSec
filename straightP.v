@@ -3,8 +3,8 @@
 
 module straightP(out, in);
 
-	input [31:0] in;
-	output [31:0] out;
+	input [31:0] in; //input comes from s-boxes
+	output [31:0] out; //output is the final output for the round
 	
 	/*16 7 20 21
 	29 12 28 17
