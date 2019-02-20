@@ -48,8 +48,8 @@ module DES_test;
    initial begin
 		// Initialize inputs
 		passed = 0;
-		KEY = 64'h133457799BBCDFF1; //64'h8FFB3DD99EEA2CC8;
-		PLAINTEXT = 64'h0123456789ABCDEF; //64'hF7B3D591E6A2C480;
+		KEY = 64'h8FFB3DD99EEA2CC8; //64'h8FFB3DD99EEA2CC8; //133457799BBCDFF1; //
+		PLAINTEXT = 64'hF7B3D591E6A2C480; //0123456789ABCDEF; //64'hF7B3D591E6A2C480;
 		//ciphertext_d = 64'h0000000000000000;
 		
 		// Initialize Watchdog timer
@@ -62,7 +62,7 @@ module DES_test;
 			$display ("Plaintext %h", PLAINTEXT);
 			#(1000 * `ClockPeriod);
 			$display ("Ciphertext %h", CIPHERTEXT);
-			passTest(CIPHERTEXT, 64'h85E813540F0AB405, "Results of DES encryption test", passed);
+			passTest(CIPHERTEXT, 64'hA02D50F02AC817A1, "Results of DES encryption test", passed);
 			
 		#1 
 			$display("Ciphertext for decryption %h", ciphertext_d);
