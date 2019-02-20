@@ -27,10 +27,6 @@ wire [47:0] round_key[15:0];
 wire [63:0] intermediateStage[16:0];
 
 //First step is to generate the keys used in the DES System
-
-
-//always@(KEY) begin
-
     key_gen keygeneration(
         .r_key1(round_key[0]),
         .r_key2(round_key[1]),
@@ -50,12 +46,14 @@ wire [63:0] intermediateStage[16:0];
         .r_key16(round_key[15]),
         .KEY(KEY)
     );
-   
+	
+   //initial permutation of data
     init initialround(
 		.PT(PLAIN_TEXT),
 		.IT(intermediateStage[0])
 	);
 	
+	//16 DES rounds - input for each one is output from the previous round
     DES_round round1(
 	.round_out(intermediateStage[1]),
 	.round_in(intermediateStage[0]),
@@ -152,6 +150,7 @@ wire [63:0] intermediateStage[16:0];
         .round_key(round_key[15])
     );
 	
+	//swap halves one more time before final permutation 
 	wire [31:0] tempL;
 	wire [31:0] tempR;
 	assign tempL = intermediateStage[16][63:32];
