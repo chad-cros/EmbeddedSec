@@ -59,6 +59,8 @@ module DES_test;
 		#(1 * `ClockPeriod);
 		
 		#1
+			$display ("Test 1");
+			$display ("Key used is %h", KEY);
 			$display ("Plaintext %h", PLAINTEXT);
 			#(1000 * `ClockPeriod);
 			$display ("Ciphertext %h", CIPHERTEXT);
@@ -69,7 +71,24 @@ module DES_test;
 			#(1000 * `ClockPeriod);
 			$display("Plaintext decrypted %h", plaintext_d);
 			passTest(plaintext_d, PLAINTEXT, "Results of DES decryption test", passed);
-		
+			
+		#5
+		/*	KEY = 64'h133457799BBCDFF1;
+			PLAINTEXT = 64'h0123456789ABCDEF; 
+		#5
+			$display ("\nTest 2");
+			$display ("Key used is %h", KEY);
+			$display ("Plaintext %h", PLAINTEXT);
+			#(1000 * `ClockPeriod);
+			$display ("Ciphertext %h", CIPHERTEXT);
+			passTest(CIPHERTEXT, 64'hA02D50F02AC817A1, "Results of DES encryption test", passed);
+			
+		#1 
+			$display("Ciphertext for decryption %h", ciphertext_d);
+			#(1000 * `ClockPeriod);
+			$display("Plaintext decrypted %h", plaintext_d);
+			passTest(plaintext_d, PLAINTEXT, "Results of DES decryption test", passed);
+		*/
 		$finish;
 		end
 		

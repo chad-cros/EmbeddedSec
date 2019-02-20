@@ -8,7 +8,7 @@
 module key_gen (r_key1, r_key2, r_key3, r_key4, r_key5, r_key6, r_key7, r_key8, r_key9, r_key10, r_key11, r_key12, r_key13, r_key14, r_key15, r_key16, KEY);
 
 	//Input of initial key
-	input wire [63:0] KEY;
+	input reg [63:0] KEY;
 	//output of 16 unique keys, one per round of encryption
 	output [47:0] r_key1;
 	output [47:0] r_key2;
@@ -33,7 +33,7 @@ module key_gen (r_key1, r_key2, r_key3, r_key4, r_key5, r_key6, r_key7, r_key8, 
 	assign p1wire = p1;
 	//initial permutation
 	perm1 p_1 (
-		.subkey(p1wire),
+		.subkey(p1),
 		.KEY(KEY)		
 	);
 	
@@ -44,8 +44,8 @@ module key_gen (r_key1, r_key2, r_key3, r_key4, r_key5, r_key6, r_key7, r_key8, 
 		.RoundKeyOut(r_key1),
 		.LeftBitsOut(LBO0),
 		.RightBitsOut(RBO0),
-		.LeftBitsIn(p1wire[55:28]),
-		.RightBitsIn(p1wire[27:0]),
+		.LeftBitsIn(p1[55:28]),
+		.RightBitsIn(p1[27:0]),
 		.R(4'h0)
 	);
     
