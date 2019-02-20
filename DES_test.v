@@ -81,7 +81,7 @@ module DES_test;
 			$display ("Plaintext %h", PLAINTEXT);
 			#(1000 * `ClockPeriod);
 			$display ("Ciphertext %h", CIPHERTEXT);
-			passTest(CIPHERTEXT, 64'hA02D50F02AC817A1, "Results of DES encryption test", passed);
+			passTest(CIPHERTEXT, 64'hAC0A339F8F67C3C8, "Results of DES encryption test", passed);
 			
 		#1 
 			$display("Ciphertext for decryption %h", ciphertext_d);

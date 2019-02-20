@@ -15,16 +15,16 @@
 module DES_top (CIPHER_TEXT, PLAIN_TEXT, KEY);
 
 input [63:0] PLAIN_TEXT;
-input reg [63:0] KEY;
+input wire [63:0] KEY;
 output [63:0] CIPHER_TEXT;
 
 //16 arrays of keys with bit length of 48, used for round_key gen
 
-reg [47:0] round_key[15:0];
+wire [47:0] round_key[15:0];
 
 //16 arrays of intermediate steps with bit length 64
 
-reg [63:0] intermediateStage[16:0];
+wire [63:0] intermediateStage[16:0];
 
 //First step is to generate the keys used in the DES System
 
